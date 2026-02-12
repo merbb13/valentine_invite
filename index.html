@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Ligaya 💖</title>
+<style>
+body {
+margin: 0;
+padding: 0;
+text-align: center;
+font-family: "Comic Sans MS", cursive;
+background: linear-gradient(135deg, #ff9ad5, #ffc3ec);
+overflow: hidden;
+}
+
+h1 {
+margin-top: 120px;
+font-size: 40px;
+color: white;
+text-shadow: 2px 2px 10px hotpink;
+animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+from { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4; }
+to { text-shadow: 0 0 20px #fff, 0 0 40px #ff1493; }
+}
+
+button {
+font-size: 20px;
+padding: 12px 25px;
+margin: 20px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+#yesBtn {
+background-color: #ff1493;
+color: white;
+}
+
+#yesBtn:hover {
+transform: scale(1.1);
+box-shadow: 0 0 15px white;
+}
+
+#noBtn {
+background-color: #ff69b4;
+color: white;
+position: absolute;
+}
+
+.heart {
+position: absolute;
+color: white;
+animation: float 5s linear infinite;
+font-size: 20px;
+}
+
+@keyframes float {
+0% { transform: translateY(100vh); opacity: 1; }
+100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<h1>Ligaya 💖<br>Will you be my Valentine? ✨</h1>
+
+<button id="yesBtn" onclick="yesAnswer()">Yes 💕</button>
+<button id="noBtn" onmouseover="moveButton()">No 😜</button>
+
+<script>
+function yesAnswer() {
+document.body.innerHTML = `
+<h1 style="margin-top:150px; color:white;">
+YAY xoxo!!! 💘✨<br>
+I love you so much my bae!! 💖
+</h1>
+`;
+}
+
+function moveButton() {
+var button = document.getElementById("noBtn");
+var x = Math.random() * (window.innerWidth - 100);
+var y = Math.random() * (window.innerHeight - 50);
+button.style.left = x + "px";
+button.style.top = y + "px";
+}
+
+function createHeart() {
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML = "💖";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = Math.random() * 20 + 15 + "px";
+heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
